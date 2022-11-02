@@ -1,2 +1,2 @@
-# mern-ecommerce
-Ecommerce website using MERN stack
+Demeter 
+User side
