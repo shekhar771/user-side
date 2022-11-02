@@ -71,7 +71,7 @@ function ProductFilters(props) {
   }, []);
 
   return (
-    <Row gutter={[8, 8]} style={{ padding: 10 }}>
+    <Row gutter={[8, 8]} style={{ padding: 15 }}>
       <Col xs={24} sm={12} md={12} lg={6} xl={3} xxl={3}>
         <Input
           placeholder='Enter keyword'
@@ -106,6 +106,7 @@ function ProductFilters(props) {
           </Col>
           <Col span={4}>
             <InputNumber
+              style={{ width: '155%' }}
               min={50}
               max={1000}
               value={filters.price.$gte}
@@ -114,7 +115,15 @@ function ProductFilters(props) {
           </Col>
         </Row>
       </Col>
-      <Col xs={24} sm={12} md={12} lg={6} xl={6} xxl={6}>
+      <Col
+        xs={24}
+        sm={12}
+        md={12}
+        lg={6}
+        xl={6}
+        xxl={6}
+        // style={{ padding: '7px', margin: '15px' }}
+      >
         <Row gutter={4} align='middle'>
           <Col span={5}>
             <Text>Price To</Text>
@@ -129,6 +138,7 @@ function ProductFilters(props) {
           </Col>
           <Col span={4}>
             <InputNumber
+              style={{ width: '155%' }}
               min={50}
               max={1000}
               value={filters.price.$lte}
@@ -137,12 +147,20 @@ function ProductFilters(props) {
           </Col>
         </Row>
       </Col>
-      <Col xs={24} sm={12} md={12} lg={6} xl={4} xxl={4}>
+      <Col
+        xs={24}
+        sm={12}
+        md={12}
+        lg={6}
+        xl={4}
+        xxl={4}
+        style={{ 'padding-left': '10px' }}
+      >
         <Button
           type='primary'
           icon={<SearchOutlined />}
           onClick={handleSearch}
-          style={{ width: '45%', marginRight: 10 }}
+          style={{ width: '70%' }}
         >
           Search
         </Button>
@@ -150,7 +168,7 @@ function ProductFilters(props) {
           type='default'
           icon={<CloseCircleOutlined />}
           onClick={handleClearSearch}
-          style={{ width: '45%' }}
+          style={{ width: '70%', 'margin-top': '5%' }}
         >
           Clear
         </Button>

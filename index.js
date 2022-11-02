@@ -5,7 +5,9 @@ const bodyParser = require('body-parser');
 
 const cors = require('cors');
 
-mongoose.connect('mongodb://localhost:27017/mern-ecommerce');
+mongoose.connect(
+  'mongodb+srv://Shekhar:Mumbai@cluster0.x7offje.mongodb.net/?retryWrites=true&w=majority'
+);
 
 const app = express();
 
