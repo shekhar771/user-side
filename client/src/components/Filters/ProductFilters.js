@@ -98,16 +98,16 @@ function ProductFilters(props) {
           </Col>
           <Col span={13}>
             <Slider
-              min={1}
-              max={20}
+              min={50}
+              max={1000}
               value={filters.price.$gte}
               onChange={handlePriceFromChange}
             />
           </Col>
           <Col span={4}>
             <InputNumber
-              min={1}
-              max={20}
+              min={50}
+              max={1000}
               value={filters.price.$gte}
               onChange={handlePriceFromChange}
             />
@@ -121,16 +121,16 @@ function ProductFilters(props) {
           </Col>
           <Col span={13}>
             <Slider
-              min={1}
-              max={20}
+              min={50}
+              max={1000}
               value={filters.price.$lte}
               onChange={handlePriceToChange}
             />
           </Col>
           <Col span={4}>
             <InputNumber
-              min={1}
-              max={20}
+              min={50}
+              max={1000}
               value={filters.price.$lte}
               onChange={handlePriceToChange}
             />

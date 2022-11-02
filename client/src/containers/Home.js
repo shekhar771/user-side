@@ -1,32 +1,32 @@
 import {
   DownOutlined,
   EyeOutlined,
-  ShoppingCartOutlined
-} from "@ant-design/icons";
-import { Card, Carousel, Col, message, Row, Space, Typography } from "antd";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import banner1 from "../assets/images/banner1.jpg";
-import banner2 from "../assets/images/banner2.jpg";
-import banner3 from "../assets/images/banner3.jpg";
-import ProductFilters from "../components/Filters/ProductFilters";
-import ProductDetailsModal from "../components/Modals/ProductDetailsModal";
-import useCarts from "../_actions/cartActions";
-import useProducts from "../_actions/productActions";
+  ShoppingCartOutlined,
+} from '@ant-design/icons';
+import { Card, Carousel, Col, message, Row, Space, Typography } from 'antd';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import banner1 from '../assets/images/banner1.jpg';
+import banner2 from '../assets/images/banner2.jpg';
+import banner3 from '../assets/images/banner3.jpg';
+import ProductFilters from '../components/Filters/ProductFilters';
+import ProductDetailsModal from '../components/Modals/ProductDetailsModal';
+import useCarts from '../_actions/cartActions';
+import useProducts from '../_actions/productActions';
 
 const contentStyle = {
-  width: "100%",
-  color: "#fff",
-  lineHeight: "160px",
-  textAlign: "center",
-  background: "#364d79",
+  width: '100%',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
 };
 
 const { Text } = Typography;
 
 const initialQuery = {
   skip: 0,
-  filters: { price: { $gte: 4, $lte: 20 } },
+  filters: { price: { $gte: 1, $lte: 1000 } },
 };
 
 function Home() {
@@ -122,26 +122,26 @@ function Home() {
           <Col key={index} xs={12} sm={12} md={12} lg={6} xl={6} xxl={6}>
             <Card
               hoverable
-              cover={<img alt="example" src={item.image} />}
+              cover={<img alt='example' src={item.image} />}
               actions={[
                 <EyeOutlined
-                  key="view"
-                  style={{ color: "orange", fontSize: 18 }}
+                  key='view'
+                  style={{ color: 'orange', fontSize: 18 }}
                   onClick={() => handleShowProductDetails(item)}
                 />,
                 <ShoppingCartOutlined
-                  key="cart"
-                  style={{ color: "#b82837", fontSize: 18 }}
+                  key='cart'
+                  style={{ color: '#b82837', fontSize: 18 }}
                   onClick={() => handleAddToCart(item)}
                 />,
               ]}
             >
-              <Space direction="vertical">
+              <Space direction='vertical'>
                 <Text strong onClick={() => handleShowProductDetails(item)}>
                   {item?.name}
                 </Text>
-                <Text type="secondary">{item?._category?.name}</Text>
-                <Text type="success">${item?.price}</Text>
+                <Text type='secondary'>{item?._category?.name}</Text>
+                <Text type='success'>${item?.price}</Text>
               </Space>
             </Card>
           </Col>
@@ -154,7 +154,7 @@ function Home() {
       {renderSlider()}
       {renderFilters()}
       {renderProductList()}
-      <div className="product-load-more">
+      <div className='product-load-more'>
         {query?.skip <= productList?.length ? (
           <>
             <DownOutlined onClick={handleLoadMore} />
