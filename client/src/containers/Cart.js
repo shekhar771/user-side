@@ -3,8 +3,8 @@ import {
   DollarOutlined,
   EditTwoTone,
   ReloadOutlined,
-  SaveTwoTone
-} from "@ant-design/icons";
+  SaveTwoTone,
+} from '@ant-design/icons';
 import {
   Button,
   Image,
@@ -13,16 +13,16 @@ import {
   PageHeader,
   Space,
   Table,
-  Typography
-} from "antd";
-import { sumBy } from "lodash";
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import StripeCheckout from "react-stripe-checkout";
-import OrderResultModal from "../components/Modals/OrderResultModal";
-import useCarts from "../_actions/cartActions";
-import useOrders from "../_actions/orderActions";
+  Typography,
+} from 'antd';
+import { sumBy } from 'lodash';
+import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import StripeCheckout from 'react-stripe-checkout';
+import OrderResultModal from '../components/Modals/OrderResultModal';
+import useCarts from '../_actions/cartActions';
+import useOrders from '../_actions/orderActions';
 
 function Cart() {
   const navigate = useNavigate();
@@ -92,37 +92,37 @@ function Cart() {
 
   const columns = [
     {
-      title: "Product",
+      title: 'Product',
       width: 80,
-      dataIndex: "_product",
-      key: "name",
+      dataIndex: '_product',
+      key: 'name',
       render: (item) => {
         return (
-          <Space direction="vertical">
+          <Space direction='vertical'>
             <Typography.Text strong>{item?.name}</Typography.Text>
-            <Image src={item?.image} alt="image" width={80} />
+            <Image src={item?.image} alt='image' width={80} />
           </Space>
         );
       },
-      fixed: "left",
+      fixed: 'left',
     },
     {
-      title: "Price ($)",
+      title: 'Price (₹)',
       width: 100,
-      dataIndex: "price",
-      key: "price",
-      align: "right",
+      dataIndex: 'price',
+      key: 'price',
+      align: 'right',
     },
     {
-      title: "Quantity",
+      title: 'Quantity',
       width: 100,
-      align: "right",
+      align: 'right',
       render: (item) => {
         if (editItem?._product?._id === item?._product?._id) {
           return (
             <InputNumber
-              size="small"
-              min={1}
+              size='small'
+              min={50}
               value={quantity}
               onChange={handleQuantityChange}
             />
@@ -132,15 +132,15 @@ function Cart() {
       },
     },
     {
-      title: "Amount ($)",
+      title: 'Amount (₹)',
       width: 100,
-      dataIndex: "amount",
-      key: "amount",
-      align: "right",
+      dataIndex: 'amount',
+      key: 'amount',
+      align: 'right',
     },
     {
-      title: "Actions",
-      fixed: "right",
+      title: 'Actions',
+      fixed: 'right',
       width: 100,
       render: (item) => {
         return (
@@ -152,20 +152,20 @@ function Cart() {
                   onClick={() => handleUpdateCartItem(item)}
                 />
                 <ReloadOutlined
-                  style={{ fontSize: 16, color: "green" }}
+                  style={{ fontSize: 16, color: 'green' }}
                   onClick={handleReset}
                 />
               </span>
             ) : (
               <EditTwoTone
                 style={{ marginRight: 4, fontSize: 16 }}
-                twoToneColor="orange"
+                twoToneColor='orange'
                 onClick={() => handleEdit(item)}
               />
             )}
             <DeleteTwoTone
               style={{ fontSize: 16 }}
-              twoToneColor="red"
+              twoToneColor='red'
               onClick={() => handleRemove(item)}
             />
           </>
@@ -181,14 +181,14 @@ function Cart() {
         <center>
           <p>Total amount: ${total}</p>
           <StripeCheckout
-            name="Payment"
+            name='Payment'
             email={auth?.data?.email}
-            description="Payment for products"
+            description='Payment for products'
             amount={total * 100}
             token={(token) => handlePayout(token, total)}
-            stripeKey="pk_test_Cqva2BP5U88LaKrGcsygbXxJ00lsh0rRya"
+            stripeKey='pk_test_Cqva2BP5U88LaKrGcsygbXxJ00lsh0rRya'
           >
-            <Button type="primary" icon={<DollarOutlined />}>
+            <Button type='primary' icon={<DollarOutlined />}>
               Checkout
             </Button>
           </StripeCheckout>
@@ -198,8 +198,8 @@ function Cart() {
   };
   return (
     <>
-      <PageHeader title="Your Cart" onBack={() => navigate(-1)} />
-      <div className="page-wrapper">
+      <PageHeader title='Your Cart' onBack={() => navigate(-1)} />
+      <div className='page-wrapper'>
         {renderCartItems()}
         {renderCheckout()}
         <OrderResultModal
